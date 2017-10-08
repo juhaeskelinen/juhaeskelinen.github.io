@@ -1,0 +1,36 @@
+<!--Footer-->
+<footer class="mdc-toolbar footer">
+    <div class="mdc-toolbar__row">
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-left">
+        </section>
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-center mdc-toolbar__section--shrink-to-fit"></section>
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-right mdc-toolbar__section--shrink-to-fit">
+            <a class="mdc-button elegant" data-mdc-auto-init="MDCRipple" href="/copyright/">Copyright</a>
+            <a class="mdc-button elegant" data-mdc-auto-init="MDCRipple" href="/privacy/">Privacy</a>
+        </section>
+    </div>
+</footer>
+<!-- init -->
+<script src="/css/material-components-web.js"></script>
+<script>
+    window.mdc.autoInit();
+</script>
+<script>
+    var drawerEl = document.querySelector('.mdc-temporary-drawer');
+    var MDCTemporaryDrawer = mdc.drawer.MDCTemporaryDrawer;
+    var drawer = new MDCTemporaryDrawer(drawerEl);
+    document.querySelector('.hamburger').addEventListener('click', function () {
+        drawer.open = true;
+        console.log('.hamburger');
+    });
+    document.querySelector('.hamburger-close').addEventListener('click', function () {
+        drawer.open = false;
+        console.log('.hamburger-close');
+    });
+    drawerEl.addEventListener('MDCTemporaryDrawer:open', function () {
+        console.log('Received MDCTemporaryDrawer:open');
+    });
+    drawerEl.addEventListener('MDCTemporaryDrawer:close', function () {
+        console.log('Received MDCTemporaryDrawer:close');
+    });
+</script>

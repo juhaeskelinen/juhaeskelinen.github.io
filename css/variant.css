@@ -1,0 +1,212 @@
+﻿:root {
+    --mdc-theme-primary: #0e4ead;
+    --elegant: #292b2c; /* a bit more light feeling, from bootstrap gray-dark: */
+}
+
+body {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+
+@media (min-width: 960px) {
+    main {
+        min-height: calc(100vh - 106px);
+    }
+}
+
+@media (min-width: 600px) and (max-width: 959px) {
+    main {
+        min-height: calc(100vh - 90px);
+    }
+}
+
+@media (max-width: 599px) {
+    main {
+        min-height: calc(100vh - 98px);
+    }
+}
+
+.wide-page {
+    max-width: 72rem; /* 72*16 = 1152 (lt 1200) */
+    xborder: 1px solid red;
+}
+
+.narrow-page {
+    max-width: 46rem; /* 46*16 = 736 */
+    xwidth: 46rem;
+    margin: 0 auto;
+    xborder: 1px solid red;
+}
+
+@media (max-width:47rem) { /* 47 * 16 = 752 */
+    .toolbar-nav {
+        display: none
+    }
+}
+
+.mdc-card {
+    height: 100%
+}
+
+.mdc-card section:last-of-type {
+    height: 100%;
+}
+
+.img-fill {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.elegant {
+    color: var(--elegant, black);
+    Xborder: 1px solid cyan;
+}
+
+h2.elegant {
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin-top: -0.4rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid lightgray;
+}
+
+h3.elegant {
+    font-weight: 300;
+    font-size: 1.4rem;
+    margin-top: 1.0rem;
+    margin-bottom: 0.5rem;
+}
+
+p.elegant {
+    font-weight: 400;
+    font-size: 1.0rem; /* 0.90 */
+    line-height: 1.5rem; /* 1.46rem; */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p.elegant:first-of-type {
+    margin-top: 0rem;
+}
+
+hr.elegant {
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    border-bottom: 1px solid #ccc;
+}
+
+a.elegant {
+    color: var(--mdc-theme-primary, black);
+    font-size: inherit;
+    font-weight: normal;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+p.elegant a.elegant {
+    line-height: 2rem;
+    padding-left: 0px;
+    padding-right: 0px;
+    min-width: 60px;
+}
+
+.mdc-card .elegant {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.mdc-toolbar a.elegant {
+    color: white;
+    min-width: 64px;
+}
+
+.toolbar-nav {
+    position: relative;
+    top: 0.1rem;
+    align-self: center;
+}
+
+.mdc-toolbar__section--align-start .toolbar-nav {
+    margin-left: 1.0rem;
+}
+
+/* */
+.toolbar-nav .toolbar-active {
+    border-radius: 0; /* rectangles */
+    box-shadow: 0 5px 2px -4px white; /* fancy underline */
+}
+
+.hamburger {
+    padding-left: 16px;
+}
+
+.mdc-temporary-drawer__toolbar-spacer.elegant {
+    border: 1px solid green;
+    padding: 6px;
+    color: #fff;
+    background-color: #0e4ead;
+}
+
+.mdc-temporary-drawer__toolbar-spacer.elegant i {
+    margin-left: -12px;
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: white;
+    align-self: center;
+}
+
+.footer {
+    display: block;
+    width: auto;
+    opacity: 0.5;
+}
+
+footer.mdc_toolbar {
+    background-color: white;
+}
+
+footer .mdc-toolbar__row {
+    background-color: white;
+    min-height: 42px;
+    font-size: .875rem; /* 0.875 * 16 = 14 */
+    padding-left: 8px;
+    padding-right: 8px;
+    xborder: 1px solid red;
+}
+
+footer .mdc-toolbar__row a.elegant {
+    color: var(--mdc-theme-primary, black);
+}
+
+.post-meta {
+    text-align: end;
+    font-style: italic;
+}
+
+.post-tag {
+    text-decoration: none;
+    color: var(--elegant, black);
+}
+
+.post-content {
+    margin-top: 1.0em;
+}
+
+.blog-sort-menu {
+    margin-top: 1.5em;
+}
+
+section {
+    xoutline: 1px dotted red;
+}
+
+.redline8 {
+    border: 1px solid red;
+    min-width: 32px;
+    min-height: 32px;
+}

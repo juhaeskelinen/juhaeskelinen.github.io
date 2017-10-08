@@ -1,0 +1,89 @@
+<header class="mdc-toolbar mdc-toolbar--fixed">
+    {% assign ordered_pages = "" | split,"" %}
+    {% for page in site.pages %}
+    {% if page.order > 0 %}
+    {% assign ordered_pages = ordered_pages | push:page %}
+    {% endif %}
+    {% endfor %}
+    {% assign ordered_pages = ordered_pages | sort: "order" %}
+    {% assign ordered_paths = ordered_pages | map: "path" %}
+    {% assign page_paths = site.header_pages | default: ordered_paths %}
+    <!--Navbar-->
+    <div class="mdc-toolbar__row">
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-start mdc-toolbar__section--shrink-to-fit">
+            {% if page_paths %}
+            <!-- hamburger and menu -->
+            <a href="#" class="hamburger material-icons mdc-toolbar__icon--menu">menu</a>
+            <!-- menu -->
+            <aside class="mdc-temporary-drawer mdc-typography">
+                <nav class="mdc-temporary-drawer__drawer">
+                    <div class="mdc-temporary-drawer__toolbar-spacer elegant">
+                        <a href="#" class="hamburger-close mdc-list-item">
+                            <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">close</i>&nbsp;
+                        </a>
+                    </div>
+                    <nav class="mdc-temporary-drawer__content mdc-list">
+                        {% for path in page_paths %}
+                        {% assign my_page = site.pages | where: "path", path | first %}
+                        {% if my_page.title %}
+                        {% if my_page.url == page.url %}
+                        {% assign active = "mdc-temporary-drawer--selected" %}
+                        {% else %}
+                        {% assign active = "" %}
+                        {% endif %}
+                        <a class="mdc-list-item {{ active }}"
+                           href="{{ my_page.url | relative_url }}">
+                            <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">{{my_page.icon}}</i>
+                            {{ my_page.title | escape }}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+						<hr class="mdc-list-divider">
+                        <a class="mdc-list-item"
+                           href="/copyright/">
+                            <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">copyright</i>
+                            Copyright
+                        </a>
+                        <a class="mdc-list-item"
+                           href="/privacy/">
+                            <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">fingerprint</i>
+                            Privacy
+                        </a>
+
+                        <hr class="mdc-list-divider">
+                        <a class="mdc-list-item"
+                           href="/search/">
+                            <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">search</i>
+                            Search
+                        </a>
+                    </nav>
+                </nav>
+            </aside>
+            {% endif %}
+            <!-- title -->
+            <h1 class="mdc-toolbar__title">{{ site.title | escape }}</h1>
+            <nav class="toolbar-nav">
+                <!-- toolbar menu links -->
+                {% for path in page_paths %}
+                {% assign my_page = site.pages | where: "path", path | first %}
+                {% if my_page.title %}
+                {% if my_page.url == page.url %}
+                {% assign active = " toolbar-active" %}
+                {% else %}
+                {% assign active = "" %}
+                {% endif %}
+                <a class="mdc-button elegant {{ active }}" data-mdc-auto-init="MDCRipple"
+                   href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+                {% endif %}
+                {% endfor %}
+            </nav>
+        </section>
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
+            <nav class="toolbar-nav">
+                <a class="material-icons mdc-toolbar__icon" data-mdc-auto-init="MDCRipple"
+                   aria-label="Search" alt="Search"
+                   href="/search/">search</a>
+            </nav>
+        </section>
+    </div>
+</header>

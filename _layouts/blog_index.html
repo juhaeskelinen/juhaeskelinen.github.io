@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<div class="mdc-layout-grid narrow-page">
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
+            <img class="img-fill mdc-elevation--z4" src="{{ site.images }}/{{ page.image }}" />
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7">
+            <article class="post">
+                <div class="post-header">
+                    <h2 class="elegant">{{ page.title | escape }}</h2>
+                </div>
+                <div class="page-summary">
+                    {{ page.description }}
+                </div>
+                {% comment %}
+                <div class="blog-sort-menu">
+                    [ show by 
+                    <a class="elegant">date</a>
+                    &nbsp;|&nbsp;
+                    <a class="elegant">tags</a>
+                    &nbsp;|&nbsp;
+                    <a class="elegant">author</a>
+                    ]
+                </div>
+                {% endcomment %}
+            </article>
+        </div>
+
+        {% for post in site.posts %}
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
+            <a href="{{ post.url | relative_url }}">
+                <img class="img-fill mdc-elevation--z4" src="{{ site.images }}/blog/{{ post.image }}" />
+            </a>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7">
+            <h3 class="elegant">
+                <a class="post-link elegant" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </h3>
+            {% assign date_format = "%b %-d, %Y" %}
+            <p class="post-meta elegant">{{ post.date | date: date_format }}</p>
+            <p class="elegant">{{ post.description}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>

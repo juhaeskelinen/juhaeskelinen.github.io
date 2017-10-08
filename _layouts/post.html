@@ -1,0 +1,60 @@
+---
+layout: default
+---
+<div class="mdc-layout-grid narrow-page">
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <div class="post-header">
+                <h2 class="post-title elegant">
+                    {{ page.title | escape }}
+                </h2>
+            </div>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9">
+            <div class="featured-image">
+                {% if page.image != nil %}
+                <img class="img-fill mdc-elevation--z4" alt="{{ page.image-alt }}" src="{{ site.images }}/blog/{{ page.image }}">
+                {% endif %}
+            </div>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+            <div class="post-meta">
+                {% if page.date %}
+                <p>
+                    {% assign date_format = site.date_format | default: "%Y-%m-%d" %}
+                    {{ page.date | date: date_format }}
+                </p>
+                {% endif %}
+                {% if page.by %}
+                <p>
+                    by {{ page.by }}
+                </p>
+                {% endif %}
+                {% if page.tags.size > 0 %}
+                <p>
+                    [
+                    {% for tag in page.tags %}
+                    <a href="{{ site.baseurl }}{{ site.tag_page }}#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
+                    {% endfor %}
+                    ]
+                </p>
+                {% endif %}
+                {% if page.image-alt %}
+                <hr class="elegant"/>
+                <p>
+                    {{ page.image-alt }}
+                </p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <!-- Text -->
+            <div class="post-content">
+                {{ content }}
+            </div>
+            {% if site.disqus.shortname %}
+            {% include disqus_comments.html %}
+            {% endif %}
+        </div>
+    </div>
+</div>
