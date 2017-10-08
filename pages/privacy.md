@@ -6,4 +6,5 @@ icon:
 permalink: /privacy/
 ---
 
-This web-site does not use cookies and does not record any of your private data.
+This web-site is hosted on [gitbub](https://github.com)
+Please refer to github privacy policy at https://help.github.com/articles/github-privacy-statement/
