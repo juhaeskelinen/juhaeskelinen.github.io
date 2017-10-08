@@ -6,5 +6,5 @@ icon:
 permalink: /privacy/
 ---
 
-This web-site is hosted on [gitbub](https://github.com)
-Please refer to github privacy policy at https://help.github.com/articles/github-privacy-statement/
+These web-pages are hosted on [GitHub](https://github.com). 
+Please refer to [GitHub privacy policy](https://github.com/site/privacy).
