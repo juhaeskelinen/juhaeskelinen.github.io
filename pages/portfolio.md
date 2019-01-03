@@ -8,3 +8,4 @@ order: 30
 ---
 
 My portfolio presents some of my professional and personal projects.
+See https://github.com/juhaeskelinen
